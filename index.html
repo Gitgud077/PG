@@ -4,27 +4,185 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>PG Listings in Kolkata</title>
     <style>
-        body { font-family: Arial, Helvetica, sans-serif; padding: 2rem; background: #f7f7f7; color: #222; }
-        .container { max-width: 640px; margin: 0 auto; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
-        h1 { margin-top: 0; }
-        p { color: #555; }
-        ul.pg-list { list-style: none; padding: 0; margin: 0; }
-        ul.pg-list li { padding: 0.75rem 1rem; border-bottom: 1px solid #eee; }
-        ul.pg-list li:last-child { border-bottom: 0; }
+:root { --bg:#f5f7fb; --card:#fff; --accent:#2b6cb0; --muted:#6b7280; --radius:10px; }
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#0f1724; -webkit-font-smoothing:antialiased;}
+.container{max-width:1000px;margin:3rem auto;padding:1rem}
+.site-card{background:var(--card);border-radius:var(--radius);padding:1.25rem;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+.header{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#6b46c1);display:flex;align-items:center;justify-content:center;color:white;border-radius:10px;font-weight:700}
+.header h1{margin:0;font-size:1.25rem}
+.header p{margin:0;color:var(--muted);font-size:.9rem}
+.controls{display:flex;gap:.75rem;flex:1;margin-left:1rem}
+.search{flex:1;display:flex;gap:.5rem}
+.search input{flex:1;padding:.5rem .75rem;border:1px solid #e6e9ef;border-radius:8px}
+select,button{padding:.5rem .75rem;border-radius:8px;border:1px solid #e6e9ef;background:white}
+.grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
+.card{display:flex;align-items:flex-start;gap:1rem;padding:1rem;border-radius:10px;border:1px solid #eef2f6;background:white;transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(13, 38, 59, 0.08)}
+.card .meta{flex:1}
+.card h3{margin:0;font-size:1.05rem}
+.meta p{margin:.25rem 0;color:var(--muted);font-size:.9rem}
+.price{font-weight:700;color:var(--accent)}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+.badge{background:#eef6ff;color:#1e3a8a;padding:.25rem .5rem;border-radius:999px;font-size:.8rem}
+.empty{padding:2rem;text-align:center;color:var(--muted)}
+.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+.footer{margin-top:1rem;text-align:center;color:var(--muted);font-size:.85rem}
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>PGLister</h1>
-        <ul class="pg-list">
-            <li>TST ACCOMODATION</li>
-            <li>Appayan PG</li>
-            <li>Eco town PG</li>
-            <li>Sabita's PG</li>
-            <li>Barsha PG</li>
-            <li>Mihir PG</li>
-        </ul>
-    </div>
-</body>
+      <div class="site-card">
+        <div class="header">
+          <div class="brand">
+            <div class="logo">PG</div>
+            <div>
+              <h1>PGLister</h1>
+              <p>Find comfortable PGs in Kolkata</p>
+            </div>
+          </div>
+          <div class="controls" aria-hidden="false">
+            <div class="search">
+              <label for="q" class="sr-only">Search</label>
+              <input id="q" type="search" placeholder="Search by PG name or location" aria-label="Search PG" />
+            </div>
+            <select id="sort" aria-label="Sort listings">
+              <option value="relevance">Sort: Relevance</option>
+              <option value="name-asc">Name: A → Z</option>
+              <option value="name-desc">Name: Z → A</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+            </select>
+          </div>
+        </div>
 
+        <div id="list" class="grid" aria-live="polite">
+          <div class="card" data-name="TST ACCOMODATION" data-price="6000" data-location="Salt Lake">
+            <div class="meta">
+              <h3>TST ACCOMODATION <span class="price">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+₹6,000/mo</span></h3>
+              <p>Location: Salt Lake</p>
+              <div class="badges"><span class="badge">Furnished</span><span class="badge">Wi-Fi</span></div>
+            </div>
+            <div><button aria-label="View TST Accommodation">View</button></div>
+          </div>
+
+          <div class="card" data-name="Appayan PG" data-price="4500" data-location="Sealdah">
+            <div class="meta">
+              <h3>Appayan PG <span class="price">₹4,500/mo</span></h3>
+              <p>Location: Sealdah</p>
+              <div class="badges"><span class="badge">Veg</span><span class="badge">Laundry</span></div>
+            </div>
+            <div><button aria-label="View Appayan PG">View</button></div>
+          </div>
+
+          <div class="card" data-name="Eco town PG" data-price="3800" data-location="Barrackpore">
+            <div class="meta">
+              <h3>Eco town PG <span class="price">₹3,800/mo</span></h3>
+              <p>Location: Barrackpore</p>
+              <div class="badges"><span class="badge">Budget</span></div>
+            </div>
+            <div><button aria-label="View Eco town PG">View</button></div>
+          </div>
+
+          <div class="card" data-name="Sabita's PG" data-price="7000" data-location="New Town">
+            <div class="meta">
+              <h3>Sabita's PG <span class="price">₹7,000/mo</span></h3>
+              <p>Location: New Town</p>
+              <div class="badges"><span class="badge">AC</span><span class="badge">Breakfast</span></div>
+            </div>
+            <div><button aria-label="View Sabita's PG">View</button></div>
+          </div>
+
+          <div class="card" data-name="Barsha PG" data-price="5200" data-location="Garia">
+            <div class="meta">
+              <h3>Barsha PG <span class="price">₹5,200/mo</span></h3>
+              <p>Location: Garia</p>
+              <div class="badges"><span class="badge">Near Metro</span></div>
+            </div>
+            <div><button aria-label="View Barsha PG">View</button></div>
+          </div>
+
+          <div class="card" data-name="Mihir PG" data-price="4800" data-location="Howrah">
+            <div class="meta">
+              <h3>Mihir PG <span class="price">₹4,800/mo</span></h3>
+              <p>Location: Howrah</p>
+              <div class="badges"><span class="badge">Gents</span></div>
+            </div>
+            <div><button aria-label="View Mihir PG">View</button></div>
+          </div>
+
+        </div>
+
+        <div class="empty" id="empty" hidden>No results found.</div>
+
+        <div class="footer">Showing sample listings — add more by editing the HTML</div>
+      </div>
+    </div>
+
+    <script>
+const q = document.getElementById('q');
+const sort = document.getElementById('sort');
+const list = Array.from(document.querySelectorAll('#list .card'));
+const grid = document.getElementById('list');
+const empty = document.getElementById('empty');
+
+function render(items){
+  grid.innerHTML = '';
+  if(items.length === 0){
+    empty.hidden = false;
+    return;
+  }
+  empty.hidden = true;
+  items.forEach(i => grid.appendChild(i));
+}
+
+function filterAndSort(){
+  const term = q.value.trim().toLowerCase();
+  let filtered = list.filter(card => {
+    const name = card.dataset.name.toLowerCase();
+    const loc = (card.dataset.location || '').toLowerCase();
+    return name.includes(term) || loc.includes(term);
+  });
+
+  const s = sort.value;
+  if(s === 'name-asc') filtered.sort((a,b)=> a.dataset.name.localeCompare(b.dataset.name));
+  if(s === 'name-desc') filtered.sort((a,b)=> b.dataset.name.localeCompare(a.dataset.name));
+  if(s === 'price-asc') filtered.sort((a,b)=> Number(a.dataset.price) - Number(b.dataset.price));
+  if(s === 'price-desc') filtered.sort((a,b)=> Number(b.dataset.price) - Number(a.dataset.price));
+  render(filtered);
+}
+
+q.addEventListener('input', filterAndSort);
+sort.addEventListener('change', filterAndSort);
+window.addEventListener('DOMContentLoaded', () => render(list));
+    </script>
+</body>
 </html>
