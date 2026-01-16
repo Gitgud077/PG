@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TST ACCOMODATION - Premium PG in Salt Lake</title>
+    <style>
+        :root {
+            --primary-color: #2b6cb0;
+            --secondary-color: #6b46c1;
+            --accent-color: #38b2ac;
+            --bg-color: #f5f7fb;
+            --card-bg: #ffffff;
+            --text-color: #0f1724;
+            --muted-text: #6b7280;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+            --hover-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--muted-text);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .details {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .details h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .qualities {
+            list-style: none;
+            padding: 0;
+        }
+
+        .qualities li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .qualities li:last-child {
+            border-bottom: none;
+        }
+
+        .qualities li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .action-buttons {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .action-buttons h4 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            min-width: 120px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .btn-secondary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #2c7a7b;
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item .placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-text);
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--muted-text);
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to PG Listings</a>
+
+        <header class="header">
+            <h1>TST ACCOMODATION</h1>
+            <p>Your Home Away from Home in Salt Lake</p>
+        </header>
+
+        <section class="hero">
+            <h2>Welcome to Premium Living</h2>
+            <div class="price">₹6,000 per month</div>
+            <div class="location">📍 Salt Lake, Kolkata</div>
+        </section>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <div class="placeholder">Room View</div>
+            </div>
+            <div class="gallery-item">
+                <div class="placeholder">Common Area</div>
+            </div>
+            <div class="gallery-item">
+                <div class="placeholder">Dining Space</div>
+            </div>
+            <div class="gallery-item">
+                <div class="placeholder">Exterior</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="details">
+                <h3>About TST ACCOMODATION</h3>
+                <p>TST ACCOMODATION offers a perfect blend of comfort, convenience, and community living. Located in the heart of Salt Lake, our PG provides a safe and welcoming environment for working professionals and students alike.</p>
+
+                <h3>Our Qualities</h3>
+                <ul class="qualities">
+                    <li><strong>Fully Furnished Rooms</strong> - Complete with bed, study table, chair, and wardrobe</li>
+                    <li><strong>High-Speed Wi-Fi</strong> - Seamless internet connectivity throughout the premises</li>
+                    <li><strong>24/7 Security</strong> - Round-the-clock surveillance and secure access</li>
+                    <li><strong>Clean & Hygienic</strong> - Daily housekeeping and sanitization services</li>
+                    <li><strong>Healthy Meals</strong> - Nutritious vegetarian and non-vegetarian options</li>
+                    <li><strong>Power Backup</strong> - Uninterrupted power supply with generator support</li>
+                    <li><strong>Parking Facility</strong> - Secure parking for two-wheelers and four-wheelers</li>
+                    <li><strong>Laundry Service</strong> - On-site washing and ironing facilities</li>
+                    <li><strong>Common Areas</strong> - TV room, reading space, and recreational facilities</li>
+                    <li><strong>Proximity to Transport</strong> - Walking distance to metro station and bus stops</li>
+                </ul>
+            </div>
+
+            <div class="sidebar">
+                <div class="action-buttons">
+                    <h4>Ready to Join Us?</h4>
+                    <button class="btn btn-primary" onclick="alert('Registration functionality coming soon!')">Register</button>
+                    <button class="btn btn-secondary" onclick="alert('Login functionality coming soon!')">Log In</button>
+                </div>
+
+                <div class="contact-info">
+                    <h4>Contact Information</h4>
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +91 98765 43210
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@tstaccommodation.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <div>
+                            <strong>Address:</strong><br>
+                            123, Sector 5, Salt Lake<br>
+                            Kolkata - 700091
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i>🕒</i>
+                        <div>
+                            <strong>Office Hours:</strong><br>
+                            Mon-Sun: 9:00 AM - 9:00 PM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 TST ACCOMODATION. All rights reserved.</p>
+            <p>Experience comfort and convenience at its finest.</p>
+        </footer>
+    </div>
+</body>
+</html>
